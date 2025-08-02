@@ -1,3 +1,4 @@
+'''
 from fractions import Fraction
 
 try:
@@ -33,3 +34,26 @@ adv_calc = AdvancedCalculator()
 print(calc.divide(3, 4))
 print(adv_calc.power(2, 3))
 print(adv_calc.sqrt(16))
+'''
+
+from abc import ABC, abstractmethod
+class BaseCalculator(ABC):
+    @abstractmethod
+    def rez(self):
+        pass
+
+class SimpleCalculator(BaseCalculator):
+    def add(self, a, b):
+        self.a = a
+        self.b = b
+        def rez(self):
+            return "result =", a + b
+
+    def subtract(self, a, b):
+        self.a = a
+        self.b = b
+        def rez(self):
+            return "result =", a - b
+
+calc = SimpleCalculator()
+calc.add(5, 3)
