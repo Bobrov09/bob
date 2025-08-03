@@ -35,7 +35,7 @@ print(calc.divide(3, 4))
 print(adv_calc.power(2, 3))
 print(adv_calc.sqrt(16))
 '''
-
+'''
 from abc import ABC, abstractmethod
 class BaseCalculator(ABC):
     @abstractmethod
@@ -57,3 +57,30 @@ class SimpleCalculator(BaseCalculator):
 
 calc = SimpleCalculator()
 calc.add(5, 3)
+'''
+
+from abc import ABC, abstractmethod
+class TeamFortress2(ABC):
+    @abstractmethod
+    def points(self):
+        pass
+
+class pyro(TeamFortress2):
+    def __init__(self, points):
+        self.points = points
+
+    def points(self):
+        print("i have", self.points, "points")
+
+class sniper(TeamFortress2):
+    def __init__(self, points, headShots):
+        self.points = points
+        self.headShots = headShots
+
+    def points(self):
+        print("i have", self.points, " and ", self.headShots, "headShots")
+
+Ilya = pyro(150)
+Ilya.points()
+Denis = sniper(200, 100)
+Denis.points()
