@@ -36,28 +36,8 @@ print(adv_calc.power(2, 3))
 print(adv_calc.sqrt(16))
 '''
 '''
-from abc import ABC, abstractmethod
-class BaseCalculator(ABC):
-    @abstractmethod
-    def rez(self):
-        pass
 
-class SimpleCalculator(BaseCalculator):
-    def add(self, a, b):
-        self.a = a
-        self.b = b
-        def rez(self):
-            return "result =", a + b
 
-    def subtract(self, a, b):
-        self.a = a
-        self.b = b
-        def rez(self):
-            return "result =", a - b
-
-calc = SimpleCalculator()
-calc.add(5, 3)
-'''
 
 from abc import ABC, abstractmethod
 class TeamFortress2(ABC):
@@ -84,3 +64,31 @@ Ilya = pyro(150)
 Ilya.points()
 Denis = sniper(200, 100)
 Denis.points()
+'''
+from abc import ABC, abstractmethod
+class BaseCalculator(ABC):
+    @abstractmethod
+    def rez(self):
+        pass
+    def __str__(self):
+        return f'result = {self.rez}'
+
+    def __repr__(self):
+        return f'Calculator(result = {self.rez})'
+
+class SimpleCalculator(BaseCalculator):
+    def add(self, a, b):
+        self.a = a
+        self.b = b
+        def rez(self):
+            return  a + b
+
+    def subtract(self, a, b):
+        self.a = a
+        self.b = b
+        def rez(self):
+            return  a - b
+
+calc = SimpleCalculator()
+calc.add(5, 3)
+print(calc)
